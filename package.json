@@ -1,0 +1,19 @@
+{
+  "name": "git-sync-history",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "bin": "./cli.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^2.4.2",
+    "fs-extra": "^8.1.0",
+    "meow": "^5.0.0",
+    "ora": "^3.4.0"
+  }
+}
