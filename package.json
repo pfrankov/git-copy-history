@@ -1,19 +1,36 @@
 {
-  "name": "git-sync-history",
+  "name": "git-copy-history",
   "version": "1.0.0",
-  "description": "",
+  "description": "Copy history from another repo",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "format": "prettier --write *"
   },
   "bin": "./cli.js",
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": {
+    "name": "Pavel Frankov",
+    "email": "pavel@frankov.ru"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pfrankov/git-copy-history.git"
+  },
+  "bugs": {
+    "url": "https://github.com/pfrankov/git-copy-history/issues"
+  },
+  "keywords": [
+    "cli",
+    "i18n"
+  ],
   "dependencies": {
     "chalk": "^2.4.2",
     "fs-extra": "^8.1.0",
     "meow": "^5.0.0",
     "ora": "^3.4.0"
+  },
+  "devDependencies": {
+    "prettier": "^1.18.2"
   }
 }

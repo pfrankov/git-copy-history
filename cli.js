@@ -1,25 +1,25 @@
 #!/usr/bin/env node
 
 const meow = require("meow");
-const gitSyncHistory = require(".");
+const gitCopyHistory = require(".");
 
 const cli = meow(
-    `
+  `
     Usage
-      $ git-sync-history from <source> [options]
+      $ git-copy-history from <source> [options]
  
     Options
       --author          
       
     Example
-      $ git-sync-history from ../my-project
-      $ git-sync-history from ../my-project --author="Pavel Frankov"
+      $ git-copy-history from ../my-project
+      $ git-copy-history from ../my-project --author="Pavel Frankov"
 `,
-    {
-        flags: {}
-    }
+  {
+    flags: {}
+  }
 );
 
 const [command, source] = cli.input;
 
-gitSyncHistory(command, source, cli.flags);
+gitCopyHistory(command, source, cli.flags);
