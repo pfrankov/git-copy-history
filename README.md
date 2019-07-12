@@ -1,4 +1,5 @@
 # Git Copy History
+[![npm version](https://badge.fury.io/js/git-copy-history.svg)](https://www.npmjs.com/package/git-copy-history)
 
 And only the history
 

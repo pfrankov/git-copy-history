@@ -10,10 +10,12 @@ const cli = meow(
  
     Options
       --author          
+      --secret          String to crypt hashes. If you too paranoid.
       
     Example
       $ git-copy-history from ../my-project
       $ git-copy-history from ../my-project --author="Pavel Frankov"
+      $ git-copy-history from ../my-project --secret="every time must be the same"
 `,
   {
     flags: {}

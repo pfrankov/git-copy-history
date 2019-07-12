@@ -10,6 +10,7 @@ const HASH_SECRET = "crypto";
 module.exports = function(command, source, _options) {
   const options = Object.assign(
     {
+      secret: HASH_SECRET,
       author: null
     },
     _options
@@ -24,7 +25,7 @@ module.exports = function(command, source, _options) {
     }
 
     return execSync(
-      `cd ${source} && git log --pretty="%H|%ad" --date=format:'%Y-%m-%d %H:%M:%S' --author="${author}"`,
+      `cd ${source} && git log --pretty="%H|%ad" --date=format:'%Y-%m-%d %H:%M:%S' --author="${author}" --all`,
       { encoding: "utf8" }
     );
   }
@@ -36,7 +37,7 @@ module.exports = function(command, source, _options) {
     }
 
     return execSync(
-      `git log --pretty="%s|%ad" --date=format:'%Y-%m-%d %H:%M:%S' --author="${author}"`,
+      `git log --pretty="%s|%ad" --date=format:'%Y-%m-%d %H:%M:%S' --author="${author}" --all`,
       { encoding: "utf8" }
     );
   }
@@ -79,7 +80,7 @@ module.exports = function(command, source, _options) {
 
   function makeHash(string) {
     return crypto
-      .createHmac("sha256", HASH_SECRET)
+      .createHmac("sha256", options.secret)
       .update(string)
       .digest("hex");
   }

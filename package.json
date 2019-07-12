@@ -1,6 +1,6 @@
 {
   "name": "git-copy-history",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Copy history from another repo",
   "main": "index.js",
   "scripts": {
