@@ -5,14 +5,17 @@ And only the history
 
 ![](https://user-images.githubusercontent.com/584632/61998650-da56b800-b0bb-11e9-8b23-3bb9f4959e96.gif)
 
-### Copy commit history from
+### Copy your commit history from
 - <img width="90" src="https://user-images.githubusercontent.com/584632/61998916-8948c300-b0bf-11e9-9888-c56d5d248a62.png"/>
 - <img width="120" src="https://user-images.githubusercontent.com/584632/61998918-8b128680-b0bf-11e9-8839-cd8611c62ed9.png"/>
-- Or any local Git repository
+- Or any other local Git repository
 
+## How it works
 Example: your repo is not on GitHub so for others it looks like you've just stopped coding at all.
-So this CLI takes all of YOUR commits from your local repo and commits only hashes of hashes for exact same time to another repo.
-Which can be shared on Github without any restrictions.
+- This CLI takes all of YOUR commits from your local repo
+- It commits only **hashes from hashes** for exact same timestamps to another repo
+- This another repository has no private information inside but it has perfectly timed commit history
+- It can be shared on GitHub without any restrictions
 
 ## Installation
 
@@ -23,10 +26,12 @@ npm install -g git-copy-history
 ## Usage
 
 ```bash
+# Create new repo
 mkdir just-history
 cd just-history
 git init
 
+# Point git-copy-history to the source repo
 # git-copy-history from <source> [options]
 git-copy-history from ../local-repo
 ```
