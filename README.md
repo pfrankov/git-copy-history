@@ -36,4 +36,10 @@ git init
 git-copy-history from ../local-repo
 ```
 
+## Update history
+Just run `git-copy-history` again and it will add only the new commits.
+```bash
+git-copy-history from ../local-repo
+```
+
 Please help me to improve this Readme file by sending PR
