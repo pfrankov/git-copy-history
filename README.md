@@ -35,11 +35,16 @@ git init
 # git-copy-history from <source> [options]
 git-copy-history from ../local-repo
 ```
+Create private [repository on GitHub](https://github.com/new).
+Follow the instructions for existing repositories.
+- Add origin to your new repository
+- Push the history to the remote repository
 
 ## Update history
 Just run `git-copy-history` again and it will add only the new commits.
 ```bash
 git-copy-history from ../local-repo
+git push
 ```
 
-Please help me to improve this Readme file by sending PR
+> Please help me to improve this Readme file by sending PR
