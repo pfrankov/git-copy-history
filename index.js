@@ -134,7 +134,7 @@ module.exports = function(command, source, _options) {
 
       const spinner = ora(`Writing history`).start();
 
-      await lines.reduce(async (lastPromise, line) => {
+      await lines.reverse().reduce(async (lastPromise, line) => {
         await lastPromise;
 
         const [hash, date] = line.split("|");
