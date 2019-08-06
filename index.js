@@ -25,7 +25,7 @@ module.exports = function(command, source, _options) {
     }
 
     return execSync(
-      `cd ${source} && git log --pretty="%H|%ad" --date=format:'%Y-%m-%d %H:%M:%S' --author="${author}" --all`,
+      `cd ${source} && git log --pretty="%H|%ad" --date=format:"%Y-%m-%d %H:%M:%S" --author="${author}" --all`,
       { encoding: "utf8" }
     );
   }
