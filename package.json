@@ -1,6 +1,6 @@
 {
   "name": "git-copy-history",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Copy history from another repo",
   "main": "index.js",
   "scripts": {
@@ -22,7 +22,10 @@
   },
   "keywords": [
     "cli",
-    "i18n"
+    "git",
+    "github",
+    "gitlab",
+    "bitbucket"
   ],
   "dependencies": {
     "chalk": "^2.4.2",

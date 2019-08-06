@@ -6,6 +6,12 @@ const util = require("util");
 const exec = util.promisify(require("child_process").exec);
 
 const HASH_SECRET = "crypto";
+const COMMANDS = ["from"];
+
+function validationError(message) {
+  console.error(chalk.bold.red(`✖ ${message}`));
+  process.exit(1);
+}
 
 module.exports = function(command, source, _options) {
   const options = Object.assign(
@@ -15,6 +21,25 @@ module.exports = function(command, source, _options) {
     },
     _options
   );
+
+  if (!command) {
+    validationError(
+      `Probably forget ${COMMANDS.map(x => `'${x}'`).join(" or ")} argument`
+    );
+    return;
+  }
+  if (!COMMANDS.includes(command)) {
+    validationError(
+      `Argument '${command}' does not exist. Use ${COMMANDS.map(
+        x => `'${x}'`
+      ).join(", ")} instead`
+    );
+    return;
+  }
+  if (!source) {
+    validationError(`Probably forget to enter a path to existing repository`);
+    return;
+  }
 
   function getHistory() {
     let author = options.author;
