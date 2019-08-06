@@ -50,7 +50,7 @@ module.exports = function(command, source, _options) {
     }
 
     return execSync(
-      `cd ${source} && git log --pretty="%H|%ad" --date=format:'%Y-%m-%d %H:%M:%S' --author="${author}" --all`,
+      `cd ${source} && git log --pretty="%H|%ad" --date=format:"%Y-%m-%d %H:%M:%S" --author="${author}" --all`,
       { encoding: "utf8" }
     );
   }
@@ -62,7 +62,7 @@ module.exports = function(command, source, _options) {
     }
 
     return execSync(
-      `git log --pretty="%s|%ad" --date=format:'%Y-%m-%d %H:%M:%S' --author="${author}" --all`,
+      `git log --pretty="%s|%ad" --date=format:"%Y-%m-%d %H:%M:%S" --author="${author}" --all`,
       { encoding: "utf8" }
     );
   }
