@@ -29,7 +29,7 @@ npm install -g git-copy-history
 
 ## Limitations
 
-Doesn't work on Windows
+[Doesn't work on Windows](https://github.com/pfrankov/git-copy-history/issues/4).
 
 ## Usage
 
