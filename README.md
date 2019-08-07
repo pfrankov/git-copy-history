@@ -27,6 +27,10 @@ Example: your repo is not on GitHub so for others it looks like you've just stop
 npm install -g git-copy-history
 ```
 
+## Limitations
+
+Doesn't work on Windows
+
 ## Usage
 
 ```bash
