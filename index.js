@@ -140,13 +140,7 @@ module.exports = function(command, source, _options) {
         const [hash, date] = line.split("|");
 
         return exec(
-          `
-                    echo "${makeHash(hash)}" > commit.md
-                    export GIT_COMMITTER_DATE="${date}"
-                    export GIT_AUTHOR_DATE="${date}"
-                    git add commit.md -f
-                    git commit --date="${date}" -m "${makeHash(hash)}"
-                `,
+          `echo "${makeHash(hash)}" > commit.md && git add commit.md && git commit --date "${date}" -m "${makeHash(hash)}"`,
           {
             encoding: "utf8"
           }
