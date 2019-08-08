@@ -138,9 +138,10 @@ module.exports = function(command, source, _options) {
         await lastPromise;
 
         const [hash, date] = line.split("|");
+        const newHash = makeHash(hash);
 
         return exec(
-          `echo "${makeHash(hash)}" > commit.md && git add commit.md && git commit --date "${date}" -m "${makeHash(hash)}"`,
+          `echo "${newHash}" > commit.md && git add commit.md && git commit --date "${date}" -m "${newHash}"`,
           {
             encoding: "utf8"
           }
