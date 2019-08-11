@@ -57,7 +57,7 @@ git push
 ```
 ## Update your profile settings
 
-If you have private repository and did not check this box: go [here](https://github.com/settings/profile) and check the box:
-![Your Profile](https://user-images.githubusercontent.com/41075647/62783212-9c4a9280-bac4-11e9-9cf8-906c0a6918fe.png)
+If you have private repository and did not check this box: go to your [Profile Settings page](https://github.com/settings/profile) and check the box:
+![Your Profile](https://user-images.githubusercontent.com/41075647/62835932-98ef0c80-bc66-11e9-82a3-ce83d93801bf.png)
 
 > Please help me to improve this Readme file by sending PR
