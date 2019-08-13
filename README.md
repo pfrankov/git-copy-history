@@ -20,6 +20,7 @@ Example: your repo is not on GitHub so for others it looks like you've just stop
 - It commits only **hashes from hashes** for exact same timestamps to another repo
 - This another repository has no private information inside but it has perfectly timed commit history
 - It can be shared on GitHub without any restrictions
+- You can even make the repository with history private - and commit history still will be visible (see the last section below)
 
 ## Installation
 
@@ -54,5 +55,11 @@ Just run `git-copy-history` again and it will add only the new commits.
 git-copy-history from ../local-repo
 git push
 ```
+## Update your profile settings
+
+If you have private repository and did not check this box: go to your [Profile Settings page](https://github.com/settings/profile) and check the box:
+
+
+<img src="https://user-images.githubusercontent.com/584632/62839812-e4221300-bc98-11e9-8455-59d346d84357.gif" width="741"/>
 
 > Please help me to improve this Readme file by sending PR
