@@ -58,6 +58,8 @@ git push
 ## Update your profile settings
 
 If you have private repository and did not check this box: go to your [Profile Settings page](https://github.com/settings/profile) and check the box:
+
+
 <img src="https://user-images.githubusercontent.com/584632/62839812-e4221300-bc98-11e9-8455-59d346d84357.gif" width="741"/>
 
 > Please help me to improve this Readme file by sending PR
