@@ -49,9 +49,15 @@ module.exports = function(command, source, _options) {
       }).replace(/\n/, "");
     }
 
+    let authorString = `--author="${author}"`;
+
+    if (Array.isArray(author)) {
+      authorString = author.map(a => `--author="${a}"`).join(" ");
+    }
+
     return execSync(
-      `cd ${source} && git log --pretty="%H|%ad" --date=format:"%Y-%m-%d %H:%M:%S" --author="${author}" --all`,
-      { encoding: "utf8" }
+      `cd ${source} && git log --pretty="%H|%ad" --date=format:"%Y-%m-%d %H:%M:%S" ${authorString} --all`,
+      { encoding: "utf8" },
     );
   }
 
@@ -61,9 +67,15 @@ module.exports = function(command, source, _options) {
       author = execSync(`git config user.name`, { encoding: "utf8" });
     }
 
+    let authorString = `--author="${author}"`;
+
+    if (Array.isArray(author)) {
+      authorString = author.map(a => `--author="${a}"`).join(" ");
+    }
+
     return execSync(
-      `git log --pretty="%s|%ad" --date=format:"%Y-%m-%d %H:%M:%S" --author="${author}" --all`,
-      { encoding: "utf8" }
+      `git log --pretty="%s|%ad" --date=format:"%Y-%m-%d %H:%M:%S" ${authorString} --all`,
+      { encoding: "utf8" },
     );
   }
 
