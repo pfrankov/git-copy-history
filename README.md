@@ -47,6 +47,13 @@ Follow the instructions for existing repositories.
 - Add origin to your new repository
 - Push the history to the remote repository
 
+### Options
+
+| Option      | Description |
+|---          |---          |
+| `--author`  | Option used to setup author name or author email. This option can be used multiple times.|
+| `--secret`  | Option used to setup secret key to hashing algorithm that creates hashes of to repo hashes.<br /> **Every time must be the same.** |
+
 ## Update history
 
 Just run `git-copy-history` again and it will add only the new commits.
@@ -55,6 +62,7 @@ Just run `git-copy-history` again and it will add only the new commits.
 git-copy-history from ../local-repo
 git push
 ```
+
 ## Update your profile settings
 
 If you have private repository and did not check this box: go to your [Profile Settings page](https://github.com/settings/profile) and check the box:
