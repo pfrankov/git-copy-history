@@ -52,7 +52,7 @@ Follow the instructions for existing repositories.
 | Option      | Description |
 |---          |---          |
 | `--author`  | Option used to setup author name or author email. This option can be used multiple times.|
-| `--secret`  | Option used to setup secret key to hashing algorithm that creates hashes of to repo hashes.<br /> **Every time must be the same.** |
+| `--secret`  | Option used to setup secret key to hashing algorithm that creates hashes from repo hashes.<br /> **Every time must be the same.** |
 
 ## Update history
 
