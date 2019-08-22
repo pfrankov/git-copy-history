@@ -49,10 +49,10 @@ Follow the instructions for existing repositories.
 
 ### Options
 
-| Option      | Description |
-|---          |---          |
-| `--author`  | Option used to setup author name or author email. This option can be used multiple times.|
-| `--secret`  | Option used to setup secret key to hashing algorithm that creates hashes from repo hashes.<br /> **Every time must be the same.** |
+| Option     | Description                                                                                                                       |
+| ---------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| `--author` | Option used to setup author name or author email. This option can be used multiple times.                                         |
+| `--secret` | Option used to setup secret key to hashing algorithm that creates hashes from repo hashes.<br /> **Every time must be the same.** |
 
 ## Update history
 
@@ -66,7 +66,6 @@ git push
 ## Update your profile settings
 
 If you have private repository and did not check this box: go to your [Profile Settings page](https://github.com/settings/profile) and check the box:
-
 
 <img src="https://user-images.githubusercontent.com/584632/62839812-e4221300-bc98-11e9-8455-59d346d84357.gif" width="741"/>
 
