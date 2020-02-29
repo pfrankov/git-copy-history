@@ -69,4 +69,7 @@ If you have private repository and did not check this box: go to your [Profile S
 
 <img src="https://user-images.githubusercontent.com/584632/62839812-e4221300-bc98-11e9-8455-59d346d84357.gif" width="741"/>
 
+## Feedback
+<img src="https://user-images.githubusercontent.com/584632/75614641-ea4fe200-5b4b-11ea-950f-096540003db1.jpg" width="335"/>
+
 > Please help me to improve this Readme file by sending PR
