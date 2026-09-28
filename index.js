@@ -1,16 +1,12 @@
-const ora = require("ora");
-const chalk = require("chalk");
-const { execSync } = require("child_process");
 const { git } = require("./git-exec");
 const crypto = require("crypto");
-const util = require("util");
-const exec = util.promisify(require("child_process").exec);
+const fs = require("fs");
 
 const HASH_SECRET = "crypto";
 const COMMANDS = ["from"];
 
 function validationError(message) {
-  console.error(chalk.bold.red(`✖ ${message}`));
+  console.error(`✖ ${message}`);
   process.exit(1);
 }
 
@@ -63,21 +59,7 @@ module.exports = function(command, source, _options) {
   }
 
   function getCurrentDirHistory() {
-    let author = options.author;
-    if (!author) {
-      author = execSync(`git config user.name`, { encoding: "utf8" });
-    }
-
-    let authorString = `--author="${author}"`;
-
-    if (Array.isArray(author)) {
-      authorString = author.map(a => `--author="${a}"`).join(" ");
-    }
-
-    return execSync(
-      `git log --pretty="%s|%ad" --date=format:"%Y-%m-%d %H:%M:%S" ${authorString} --all`,
-      { encoding: "utf8" }
-    );
+    return git(["log", "--pretty=%s|%ad", "--all"]);
   }
 
   function findMissedCommits() {
@@ -124,44 +106,32 @@ module.exports = function(command, source, _options) {
   }
 
   ({
-    async from() {
+    from() {
       let lines;
 
       try {
         lines = findMissedCommits();
       } catch (e) {
-        console.warn(
-          chalk.bold.green(`No commits in current directory. Continue`)
-        );
+        console.warn(`No commits in current directory. Continue`);
         lines = getHistory()
           .split("\n")
           .filter(x => x);
       }
 
       if (!lines.length) {
-        console.log(chalk.bold.green(`Nothing to update. It may be ok.`));
+        console.log(`Nothing to update. It may be ok.`);
         return;
       }
 
-      console.log(chalk.green(`Found ${lines.length} commits`));
-
-      const spinner = ora(`Writing history`).start();
-
-      await lines.reverse().reduce(async (lastPromise, line) => {
-        await lastPromise;
-
+      console.log(`Found ${lines.length} commits`);
+      for (const line of lines.reverse()) {
         const [hash, date] = line.split("|");
         const newHash = makeHash(hash);
-
-        return exec(
-          `echo "${newHash}" > commit.md && git add commit.md && git commit --date "${date}" -m "${newHash}"`,
-          {
-            encoding: "utf8"
-          }
-        );
-      }, Promise.resolve());
-
-      spinner.succeed();
+        fs.writeFileSync("commit.md", `${newHash}\n`);
+        git(["add", "commit.md"]);
+        git(["commit", "--date", date, "-m", newHash]);
+      }
+      console.log(`History updated.`);
     }
   }[command]());
 };

@@ -41,6 +41,8 @@ git init
 git-copy-history from ../local-repo
 ```
 
+Если в пути есть пробелы, заключите его в кавычки: `git-copy-history from "../my project"`.
+
 Create private [repository on GitHub](https://github.com/new).
 Follow the instructions for existing repositories.
 

@@ -20,7 +20,10 @@ test("git config user.name works when the repo path contains a space", () => {
   run(["commit", "-qm", "init"]);
 
   assert.throws(() => {
-    execSync(`cd ${source} && git config user.name`, { encoding: "utf8" });
+    execSync(`cd ${source} && git config user.name`, {
+      encoding: "utf8",
+      stdio: ["ignore", "pipe", "pipe"],
+    });
   });
 
   assert.equal(git(["config", "user.name"], source).replace(/\n/, ""), "Space Name");

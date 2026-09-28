@@ -1,11 +1,14 @@
 {
   "name": "git-copy-history",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Copy history from another repo",
   "main": "index.js",
+  "files": ["cli.js", "git-exec.js", "index.js", "CHANGELOG.md", "LICENSE"],
   "scripts": {
     "start": "node index.js",
-    "format": "prettier --write *"
+    "format": "prettier --write *",
+    "test": "node --test",
+    "check:pack": "npm pack --dry-run"
   },
   "bin": "./cli.js",
   "author": {
@@ -15,7 +18,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/pfrankov/git-copy-history.git"
+    "url": "https://github.com/pfrankov/git-copy-history"
   },
   "bugs": {
     "url": "https://github.com/pfrankov/git-copy-history/issues"
@@ -27,12 +30,6 @@
     "gitlab",
     "bitbucket"
   ],
-  "dependencies": {
-    "chalk": "^2.4.2",
-    "fs-extra": "^8.1.0",
-    "meow": "^5.0.0",
-    "ora": "^3.4.0"
-  },
   "devDependencies": {
     "prettier": "^1.18.2"
   }
