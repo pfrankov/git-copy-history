@@ -1,6 +1,7 @@
 const ora = require("ora");
 const chalk = require("chalk");
 const { execSync } = require("child_process");
+const { git } = require("./git-exec");
 const crypto = require("crypto");
 const util = require("util");
 const exec = util.promisify(require("child_process").exec);
@@ -44,20 +45,20 @@ module.exports = function(command, source, _options) {
   function getHistory() {
     let author = options.author;
     if (!author) {
-      author = execSync(`cd ${source} && git config user.name`, {
-        encoding: "utf8"
-      }).replace(/\n/, "");
+      author = git(["config", "user.name"], source).replace(/\n/, "");
     }
 
-    let authorString = `--author="${author}"`;
-
-    if (Array.isArray(author)) {
-      authorString = author.map(a => `--author="${a}"`).join(" ");
-    }
-
-    return execSync(
-      `cd ${source} && git log --pretty="%H|%ad" --date=format:"%Y-%m-%d %H:%M:%S" ${authorString} --all`,
-      { encoding: "utf8" }
+    const authors = Array.isArray(author) ? author : [author];
+    return git(
+      [
+        "log",
+        "--pretty=%H|%ad",
+        "--date=format:%Y-%m-%d %H:%M:%S"
+      ].concat(
+        authors.map(name => `--author=${name}`),
+        ["--all"]
+      ),
+      source
     );
   }
 
